@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">    
+    <title>Document</title>
+    <script>
+        function skaiciuotuvas(){            
+            var height = document.getElementById("inputAukstis").value;
+            var width = document.getElementById("inputPlotis").value;
+            var length = document.getElementById("inputIlgis").value;
+            var turisMetrais = Math.round(height*width*length/1000000).toFixed(2);
+            var turisLitrais = Math.round(height*width*length/1000).toFixed(2);
+            
+            if(height==""||height<=0||width==""||width<=0||length==""||length<=0){
+                
+                document.getElementById('Suskaiciuok').innerHTML="Neuzpildyta forma";
+            }
+            else {               
+                document.getElementById('Suskaiciuok').innerHTML="<ol><li> Staciakambio turis kvadratiniais metrais: "+turisMetrais+"</li><li>Staciakampio turis litrais: "+turisLitrais+"</li></ol>";
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name="Ivesk">
+        <pre>
+            Aukstis <input type="number" name="auks" min="1" max="1000000" id="inputAukstis"><br>
+            Plotis <input type="number" name="plot" min="1" max="1000000" id="inputPlotis"><br>
+            Ilgis <input type="number" name="ilg" min="1" max="1000000" id="inputIlgis"><br>
+            
+            <input type="button" value="Apskaiciuoti" onclick="skaiciuotuvas()"> <input type="reset" value="Is naujo">
+        </pre>
+    </form>
+    <hr>
+    <div id="Suskaiciuok">Rezultatas</div>
+</body>
+</html>
